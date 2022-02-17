@@ -23,7 +23,14 @@ public class LocationDaoJpa implements LocationDao {
 
     @Override
     @Transactional
-    public void save(String name, double lat, double lon) {
-        entityManager.persist(new Location(name, lat, lon));
+    public long save(String name, double lat, double lon) {
+        Location location = new Location(name, lat, lon);
+        entityManager.persist(location);
+        return location.getId();
+    }
+
+    @Override
+    public Location findLocationById(long id) {
+        return entityManager.find(Location.class, id);
     }
 }

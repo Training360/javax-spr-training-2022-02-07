@@ -25,18 +25,7 @@ public class LocationDaoJdbcTemplate implements LocationDao {
                         rs.getDouble("lat"), rs.getDouble("lon")));
     }
 
-    @Override
-    public void save(String name, double lat, double lon) {
-        jdbcTemplate.update(conn -> {
-            PreparedStatement ps = conn.prepareStatement("insert into locations(name,lat,lon) values (?,?,?)");
-            ps.setString(1, name);
-            ps.setDouble(2, lat);
-            ps.setDouble(3, lon);
-            return ps;
-        });
-    }
-
-    public Long create(String name, double lat, double lon) {
+    public long save(String name, double lat, double lon) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(conn -> {
             PreparedStatement ps = conn.prepareStatement("insert into locations(name,lat,lon) values (?,?,?)",
