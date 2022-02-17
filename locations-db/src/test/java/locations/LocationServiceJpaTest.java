@@ -17,7 +17,7 @@ import static org.junit.Assert.assertEquals;
 public class LocationServiceJpaTest {
 
     @Autowired
-    private LocationServiceJpa locationService;
+    private LocationService locationService;
 
     @Test
     public void testSaveThenQuery() {

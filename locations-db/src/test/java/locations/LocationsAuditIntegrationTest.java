@@ -19,7 +19,7 @@ import static org.junit.Assert.assertEquals;
 public class LocationsAuditIntegrationTest {
 
     @Autowired
-    private LocationServiceJpa locationServiceJpa;
+    private LocationService locationServiceJpa;
     @Autowired
     private AuditLoggerService loggerService;
     @Rule
