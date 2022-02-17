@@ -39,7 +39,7 @@ public class LocationDaoIntegrationTest {
         locationDao.save("BP", 1.2, 1.4);
         locationDao.save("SP", 2.5, 3.4);
         Location locationSP = locationDao.findAll().get(1);
-        assertEquals(locationSP, locationDao.findById(locationSP.getId()).orElse(null));
+        assertEquals(locationSP, locationDao.findById(locationSP.getId()).orElseThrow(() -> new IllegalStateException("Not found")));
     }
 
     @Test
@@ -48,10 +48,10 @@ public class LocationDaoIntegrationTest {
         locationDao.save("SP", 2.5, 3.4);
         Location locationSP = locationDao.findAll().get(1);
         locationDao.update(locationSP.getId(), "ERD", 1.4, 1.7);
-        Location updated = locationDao.findById(locationSP.getId()).orElse(null);
-        assertEquals(updated.getName(), "ERD");
-        assertEquals(updated.getLat(), 1, 4);
-        assertEquals(updated.getLon(), 1, 7);
+        Location updated = locationDao.findById(locationSP.getId()).orElseThrow(() -> new IllegalStateException("Not found"));
+        assertEquals("ERD", updated.getName());
+        assertEquals(1, updated.getLat(), 4);
+        assertEquals(1, updated.getLon(),7);
     }
 
     @Test
