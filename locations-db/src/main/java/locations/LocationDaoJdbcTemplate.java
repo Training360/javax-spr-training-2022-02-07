@@ -1,10 +1,9 @@
-package spring.app;
+package locations;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
-import spring.app.Location;
 
 import javax.sql.DataSource;
 import java.sql.*;

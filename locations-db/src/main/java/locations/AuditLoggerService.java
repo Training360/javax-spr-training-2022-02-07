@@ -1,4 +1,4 @@
-package spring.app;
+package locations;
 
 import org.springframework.stereotype.Service;
 

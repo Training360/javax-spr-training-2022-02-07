@@ -1,4 +1,4 @@
-package spring.app;
+package locations;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import org.flywaydb.core.Flyway;
@@ -60,7 +60,7 @@ public class AppConfig {
                 new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setJpaVendorAdapter(jpaVendorAdapter());
         entityManagerFactoryBean.setDataSource(dataSource);
-        entityManagerFactoryBean.setPackagesToScan("spring.app");
+        entityManagerFactoryBean.setPackagesToScan(Location.class.getPackage().getName());
         return entityManagerFactoryBean;
     }
 }

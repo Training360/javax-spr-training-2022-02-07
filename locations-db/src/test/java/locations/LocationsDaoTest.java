@@ -1,4 +1,4 @@
-package spring.app;
+package locations;
 
 import org.flywaydb.core.Flyway;
 import org.junit.Before;

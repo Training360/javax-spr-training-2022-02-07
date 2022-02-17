@@ -1,4 +1,4 @@
-package spring.app;
+package locations;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import org.flywaydb.core.Flyway;

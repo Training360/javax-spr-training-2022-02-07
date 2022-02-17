@@ -1,6 +1,5 @@
-package spring.app;
+package locations;
 
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;

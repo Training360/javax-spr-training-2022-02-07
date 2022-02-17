@@ -1,4 +1,4 @@
-package spring.app;
+package locations;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,15 +14,15 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppConfig.class)
 @Sql(scripts = "classpath:/clear.sql")
-public class LocationsIntegrationTest {
+public class LocationServiceJpaTest {
 
     @Autowired
-    private LocationDao locationDao;
+    private LocationServiceJpa locationService;
 
     @Test
     public void testSaveThenQuery() {
-        locationDao.save("Budapest", 12.34, 87.34);
-        List<Location> locations = locationDao.findAll();
+        locationService.createLocation("Budapest", 12.34, 87.34);
+        List<Location> locations = locationService.listLocations();
         assertEquals(locations.size(), 1);
         assertEquals(locations.get(0).getName(), "Budapest");
         assertEquals(locations.get(0).getLat(), 12, 34);
