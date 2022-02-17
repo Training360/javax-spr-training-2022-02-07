@@ -17,8 +17,7 @@ public class LocationService {
     }
 
     public void saveLocation(String name, double lat, double lon, byte[] image) {
-        Location location = new Location(name, lat, lon);
-        location.setImage(image);
+        Location location = new Location(name, lat, lon, image);
         locationRepository.save(location);
     }
 

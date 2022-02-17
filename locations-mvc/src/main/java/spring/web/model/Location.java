@@ -29,7 +29,13 @@ public class Location {
         this.name = name;
         this.lat = lat;
         this.lon = lon;
-        this.image = new byte[0];
+    }
+
+    public Location(String name, double lat, double lon, byte[] image) {
+        this.name = name;
+        this.lat = lat;
+        this.lon = lon;
+        this.image = image;
     }
 
     public Location(Long id, String name, double lat, double lon) {

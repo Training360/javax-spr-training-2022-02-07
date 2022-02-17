@@ -48,26 +48,31 @@ public class LocationsController {
             return new ModelAndView("index",
                     "locations", locationService.listLocations());
         }
-        byte[] imageSrc = new byte[0];
-        if(locationForm.getFile() != null) {
-            try {
-                ByteArrayResource resource = new ByteArrayResource(locationForm.getFile().getBytes());
-                if (resource.exists()) {
-                    imageSrc = resource.getByteArray();
-                }
-            } catch (IOException ioe) {
-                throw new IllegalStateException("Failed to save image", ioe);
-            }
-        }
+
+        byte[] image = readImage(locationForm);
 
         String message = messageSource.getMessage("location.saved", new Object[]{locationForm.getName()}, locale);
         List<String> coordinates = new ArrayList<>(Arrays.asList(locationForm.getCoordinates().split(", ")));
         locationService.saveLocation(locationForm.getName(),
                 Double.parseDouble(coordinates.get(0)),
                 Double.parseDouble(coordinates.get(1)),
-                imageSrc);
+                image);
         redirectAttributes.addFlashAttribute("message", message);
         //return "redirect:/";
         return new ModelAndView("redirect:/");
+    }
+
+    private byte[] readImage(LocationForm locationForm) {
+        if(locationForm.getFile() != null && locationForm.getFile().getSize() != 0) {
+            try {
+                ByteArrayResource resource = new ByteArrayResource(locationForm.getFile().getBytes());
+                if (resource.exists()) {
+                    return resource.getByteArray();
+                }
+            } catch (IOException ioe) {
+                throw new IllegalStateException("Failed to read image", ioe);
+            }
+        }
+        return null;
     }
 }

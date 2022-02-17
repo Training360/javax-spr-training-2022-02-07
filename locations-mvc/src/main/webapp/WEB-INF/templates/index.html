@@ -26,7 +26,7 @@
                     <td th:text="${location.name}"></td>
                     <td th:text="${location.lat}"></td>
                     <td th:text="${location.lon}"></td>
-                    <td><img th:src="${location.image}" alt="No Image"/></td>
+                    <td><img th:if="${location.image}" th:src="@{/images/{id}(id=${location.id})}" alt="Location image"/></td>
                 </tr>
             </th:block>
         </tbody>
