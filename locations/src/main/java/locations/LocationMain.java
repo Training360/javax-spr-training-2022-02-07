@@ -23,6 +23,6 @@ public class LocationMain {
             System.out.println(locationService.listLocations());
             System.out.println("\nUpdate location 3: ");
             System.out.println(locationService.updateLocation(2, "ERD", 1.2, 5.4).orElse(null));
-        };
+        }
     }
 }
