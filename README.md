@@ -1,0 +1,1 @@
+# Spring training gyakorlati feladat
