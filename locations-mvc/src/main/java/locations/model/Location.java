@@ -1,4 +1,4 @@
-package spring.web.model;
+package locations.model;
 
 import javax.persistence.*;
 

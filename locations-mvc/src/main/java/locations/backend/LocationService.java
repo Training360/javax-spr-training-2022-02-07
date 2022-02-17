@@ -1,9 +1,9 @@
-package spring.web.backend;
+package locations.backend;
 
 import org.springframework.stereotype.Service;
-import spring.web.controller.LocationNotFoundException;
-import spring.web.model.Image;
-import spring.web.model.Location;
+import locations.controller.LocationNotFoundException;
+import locations.model.Image;
+import locations.model.Location;
 
 import javax.transaction.Transactional;
 import java.util.List;

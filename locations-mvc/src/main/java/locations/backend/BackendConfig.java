@@ -1,6 +1,7 @@
-package spring.web.backend;
+package locations.backend;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+import locations.model.Location;
 import org.flywaydb.core.Flyway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -63,7 +64,7 @@ public class BackendConfig {
                 new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setJpaVendorAdapter(jpaVendorAdapter());
         entityManagerFactoryBean.setDataSource(dataSource);
-        entityManagerFactoryBean.setPackagesToScan("spring.web.model");
+        entityManagerFactoryBean.setPackagesToScan(Location.class.getPackage().getName());
         return entityManagerFactoryBean;
     }
 }

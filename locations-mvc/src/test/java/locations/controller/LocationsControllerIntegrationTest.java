@@ -1,5 +1,8 @@
-package spring.web.controller;
+package locations.controller;
 
+import locations.backend.BackendConfig;
+import locations.backend.LocationService;
+import locations.model.Location;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,9 +18,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-import spring.web.backend.BackendConfig;
-import spring.web.backend.LocationService;
-import spring.web.model.Location;
 
 import java.util.List;
 

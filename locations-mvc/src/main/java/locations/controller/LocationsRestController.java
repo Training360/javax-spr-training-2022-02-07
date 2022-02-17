@@ -1,8 +1,8 @@
-package spring.web.controller;
+package locations.controller;
 
+import locations.backend.LocationService;
+import locations.model.Location;
 import org.springframework.web.bind.annotation.*;
-import spring.web.backend.LocationService;
-import spring.web.model.Location;
 
 import java.util.List;
 

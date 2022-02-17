@@ -1,8 +1,8 @@
-package spring.web;
+package locations;
 
+import locations.backend.BackendConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-import spring.web.backend.BackendConfig;
-import spring.web.controller.WebConfig;
+import locations.controller.WebConfig;
 
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration;

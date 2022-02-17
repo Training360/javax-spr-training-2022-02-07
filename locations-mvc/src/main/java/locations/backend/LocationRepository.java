@@ -1,7 +1,7 @@
-package spring.web.backend;
+package locations.backend;
 
+import locations.model.Location;
 import org.springframework.data.jpa.repository.JpaRepository;
-import spring.web.model.Location;
 
 public interface LocationRepository extends JpaRepository<Location, Long> {
 }

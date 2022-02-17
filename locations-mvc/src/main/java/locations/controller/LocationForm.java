@@ -1,4 +1,4 @@
-package spring.web.controller;
+package locations.controller;
 
 import org.springframework.web.multipart.MultipartFile;
 

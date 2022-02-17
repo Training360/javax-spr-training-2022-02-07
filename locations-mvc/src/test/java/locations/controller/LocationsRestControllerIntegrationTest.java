@@ -1,6 +1,9 @@
-package spring.web.controller;
+package locations.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import locations.backend.BackendConfig;
+import locations.backend.LocationService;
+import locations.model.Location;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,9 +16,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-import spring.web.backend.BackendConfig;
-import spring.web.backend.LocationService;
-import spring.web.model.Location;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

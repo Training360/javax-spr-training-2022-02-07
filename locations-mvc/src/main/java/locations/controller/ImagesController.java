@@ -1,12 +1,12 @@
-package spring.web.controller;
+package locations.controller;
 
+import locations.backend.LocationService;
+import locations.model.Image;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import spring.web.backend.LocationService;
-import spring.web.model.Image;
 
 @Controller
 @RequestMapping(value = "/images")

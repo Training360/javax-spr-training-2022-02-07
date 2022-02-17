@@ -1,13 +1,13 @@
-package spring.web.controller;
+package locations.controller;
 
+import locations.backend.LocationService;
+import locations.model.Location;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.web.servlet.ModelAndView;
-import spring.web.backend.LocationService;
-import spring.web.model.Location;
 
 import java.util.Collections;
 import java.util.List;
