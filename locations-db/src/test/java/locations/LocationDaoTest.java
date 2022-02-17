@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppConfig.class)
-public class LocationsDaoTest {
+public class LocationDaoTest {
 
     @Autowired
     private Flyway flyway;

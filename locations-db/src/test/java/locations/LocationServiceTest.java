@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppConfig.class)
 @Sql(scripts = "classpath:/clear.sql")
-public class LocationServiceJpaTest {
+public class LocationServiceTest {
 
     @Autowired
     private LocationService locationService;
