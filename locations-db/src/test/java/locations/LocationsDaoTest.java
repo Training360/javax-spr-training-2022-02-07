@@ -13,7 +13,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = AppConfigSpringJdbc.class)
+@ContextConfiguration(classes = AppConfig.class)
 public class LocationsDaoTest {
 
     @Autowired
@@ -39,7 +39,7 @@ public class LocationsDaoTest {
     }
 
     @Test
-    public void testThanFind() {
+    public void testThenFind() {
         long id = locationDao.create("Budapest", 23.14, 67.45);
         System.out.println(id);
         Location location = locationDao.findLocationById(id);
