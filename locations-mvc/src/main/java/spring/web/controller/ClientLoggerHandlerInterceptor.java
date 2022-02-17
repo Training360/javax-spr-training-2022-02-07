@@ -12,7 +12,7 @@ public class ClientLoggerHandlerInterceptor extends HandlerInterceptorAdapter {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         String client = request.getHeader("Accept-Language");
         logger.debug("Client: {}", client);
         return true;

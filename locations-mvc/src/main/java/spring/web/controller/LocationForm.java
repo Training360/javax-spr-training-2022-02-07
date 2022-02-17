@@ -12,8 +12,6 @@ public class LocationForm {
     private String coordinates;
     private MultipartFile file;
 
-    public LocationForm() {}
-
     public String getName() {
         return name;
     }

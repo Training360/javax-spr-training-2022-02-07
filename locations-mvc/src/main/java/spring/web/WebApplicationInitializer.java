@@ -28,8 +28,8 @@ public class WebApplicationInitializer extends AbstractAnnotationConfigDispatche
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
         MultipartConfigElement multipartConfigElement =
                 new MultipartConfigElement(System.getProperty("java.io.tmpdir"),
-                        5 * 1024 * 1024,
-                        20 * 1024 * 1024,
+                        5 * 1024 * 1024L,
+                        20 * 1024 * 1024L,
                         0);
         registration.setMultipartConfig(multipartConfigElement);
     }
