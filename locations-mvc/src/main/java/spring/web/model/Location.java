@@ -19,9 +19,8 @@ public class Location {
     @Column(name = "lon")
     private double lon;
 
-    @Lob
-    @Column(name = "image")
-    private byte[] image;
+    @Embedded
+    private Image image;
 
     public Location() {}
 
@@ -31,7 +30,7 @@ public class Location {
         this.lon = lon;
     }
 
-    public Location(String name, double lat, double lon, byte[] image) {
+    public Location(String name, double lat, double lon, Image image) {
         this.name = name;
         this.lat = lat;
         this.lon = lon;
@@ -43,7 +42,6 @@ public class Location {
         this.name = name;
         this.lat = lat;
         this.lon = lon;
-        this.image = new byte[0];
     }
 
     public Long getId() {
@@ -78,11 +76,11 @@ public class Location {
         this.lon = lon;
     }
 
-    public byte[] getImage() {
+    public Image getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(Image image) {
         this.image = image;
     }
 

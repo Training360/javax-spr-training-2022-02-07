@@ -2,6 +2,7 @@ package spring.web.backend;
 
 import org.springframework.stereotype.Service;
 import spring.web.controller.LocationNotFoundException;
+import spring.web.model.Image;
 import spring.web.model.Location;
 
 import javax.transaction.Transactional;
@@ -16,7 +17,7 @@ public class LocationService {
         this.locationRepository = locationRepository;
     }
 
-    public void saveLocation(String name, double lat, double lon, byte[] image) {
+    public void saveLocation(String name, double lat, double lon, Image image) {
         Location location = new Location(name, lat, lon, image);
         locationRepository.save(location);
     }

@@ -10,12 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import spring.web.backend.LocationService;
+import spring.web.model.Image;
 
 import javax.validation.Valid;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 @Controller
@@ -49,26 +47,24 @@ public class LocationsController {
                     "locations", locationService.listLocations());
         }
 
-        byte[] image = readImage(locationForm);
+        Image image = readImage(locationForm);
 
         String message = messageSource.getMessage("location.saved", new Object[]{locationForm.getName()}, locale);
-        List<String> coordinates = new ArrayList<>(Arrays.asList(locationForm.getCoordinates().split(", ")));
+        String[] coordinates = locationForm.getCoordinates().split(", ");
         locationService.saveLocation(locationForm.getName(),
-                Double.parseDouble(coordinates.get(0)),
-                Double.parseDouble(coordinates.get(1)),
+                Double.parseDouble(coordinates[0]),
+                Double.parseDouble(coordinates[1]),
                 image);
         redirectAttributes.addFlashAttribute("message", message);
         //return "redirect:/";
         return new ModelAndView("redirect:/");
     }
 
-    private byte[] readImage(LocationForm locationForm) {
+    private Image readImage(LocationForm locationForm) {
         if(locationForm.getFile() != null && locationForm.getFile().getSize() != 0) {
             try {
                 ByteArrayResource resource = new ByteArrayResource(locationForm.getFile().getBytes());
-                if (resource.exists()) {
-                    return resource.getByteArray();
-                }
+                return new Image(resource.getByteArray(), locationForm.getFile().getContentType());
             } catch (IOException ioe) {
                 throw new IllegalStateException("Failed to read image", ioe);
             }

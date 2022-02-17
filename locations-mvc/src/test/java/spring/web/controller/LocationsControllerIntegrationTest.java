@@ -51,7 +51,7 @@ public class LocationsControllerIntegrationTest {
     @Test
     public void testSaveThenListLocations() throws Exception {
         MockMultipartFile testFile = new MockMultipartFile("file", "filename.svg",
-                "image/svg", new ClassPathResource("/spring.svg", LocationsControllerIntegrationTest.class).getInputStream());
+                "image/svg+xml", new ClassPathResource("/spring.svg", LocationsControllerIntegrationTest.class).getInputStream());
 
         mockMvc.perform(multipart("/")
                 .file(testFile)
