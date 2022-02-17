@@ -16,10 +16,13 @@ import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppConfig.class)
 @ActiveProfiles("normal")
-public class LocationDaoIntegrationTest {
+public class LocationServiceIntegrationTest {
 
     @Autowired
     private LocationDao locationDao;
+
+    @Autowired
+    private LocationService locationService;
 
     @Before
     public void clearList() {
@@ -28,27 +31,25 @@ public class LocationDaoIntegrationTest {
 
     @Test
     public void testFindAll() {
-        locationDao.save("BP", 1.2, 1.4);
-        locationDao.save("SP", 2.5, 3.4);
-        assertEquals(Arrays.asList("BP", "SP"), locationDao.findAll().stream()
+        locationService.createLocation("BP", 1.2, 1.4);
+        locationService.createLocation("SP", 2.5, 3.4);
+        assertEquals(Arrays.asList("BP", "SP"), locationService.listLocations().stream()
                 .map(Location::getName).collect(Collectors.toList()));
     }
 
     @Test
     public void testFindById() {
-        locationDao.save("BP", 1.2, 1.4);
-        locationDao.save("SP", 2.5, 3.4);
-        Location locationSP = locationDao.findAll().get(1);
-        assertEquals(locationSP, locationDao.findById(locationSP.getId()).orElseThrow(() -> new IllegalStateException("Not found")));
+        Location saved = locationService.createLocation("BP", 1.2, 1.4);
+        Location location = locationService.getLocationById(saved.getId()).orElseThrow(() -> new IllegalStateException("Not found"));
+        assertEquals(saved, location);
     }
 
     @Test
     public void update() {
-        locationDao.save("BP", 1.2, 1.4);
-        locationDao.save("SP", 2.5, 3.4);
-        Location locationSP = locationDao.findAll().get(1);
-        locationDao.update(locationSP.getId(), "ERD", 1.4, 1.7);
-        Location updated = locationDao.findById(locationSP.getId()).orElseThrow(() -> new IllegalStateException("Not found"));
+        Location saved = locationService.createLocation("BP", 1.2, 1.4);
+        locationService.updateLocation(saved.getId(), "ERD", 1.4, 1.7);
+        Location updated = locationService.getLocationById(saved.getId()).orElseThrow(() -> new IllegalStateException("Not found"));
+
         assertEquals("ERD", updated.getName());
         assertEquals(1, updated.getLat(), 4);
         assertEquals(1, updated.getLon(),7);
@@ -56,9 +57,8 @@ public class LocationDaoIntegrationTest {
 
     @Test
     public void delete() {
-        locationDao.save("BP", 1.2, 1.4);
-        assertFalse(locationDao.findAll().isEmpty());
-        locationDao.delete(locationDao.findAll().get(0).getId());
+        Location saved = locationDao.save("BP", 1.2, 1.4);
+        locationDao.delete(saved.getId());
         assertTrue(locationDao.findAll().isEmpty());
     }
 }
