@@ -24,7 +24,7 @@ public class LocationController {
     @RequestMapping("/{id}")
     public ModelAndView findLocationById(@PathVariable("id") long id) {
         Location location = locationService.findLocationById(id);
-        return new ModelAndView("locations", "location", location);
+        return new ModelAndView("locationdetails", "location", location);
     }
 
     @ExceptionHandler(LocationNotFoundException.class)
