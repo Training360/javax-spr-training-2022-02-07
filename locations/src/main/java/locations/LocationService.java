@@ -22,9 +22,8 @@ public class LocationService {
         this.locationDao = locationDao;
     }
 
-    public void createLocationTemplate() {
-        Location location = applicationContext.getBean(Location.class);
-        System.out.println("Location service added" + location + " hash: " + location.hashCode());
+    public Location createLocationTemplate() {
+        return applicationContext.getBean(Location.class);
     }
 
     public List<Location> listLocations() {

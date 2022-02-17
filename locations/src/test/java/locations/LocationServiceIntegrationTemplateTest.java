@@ -7,6 +7,8 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import static org.junit.Assert.assertFalse;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppConfig.class)
 @ActiveProfiles("normal")
@@ -17,7 +19,8 @@ public class LocationServiceIntegrationTemplateTest {
 
     @Test
     public void testCreateTemplates() {
-        locationService.createLocationTemplate();
-        locationService.createLocationTemplate();
+        Location location1 = locationService.createLocationTemplate();
+        Location location2 = locationService.createLocationTemplate();
+        assertFalse(location1 == location2);
     }
 }
