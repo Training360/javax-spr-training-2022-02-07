@@ -2,6 +2,7 @@ package locations;
 
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.Optional;
 
 @Repository
 @Primary
-//@Profile("normal")
+@Profile("normal")
 @Conditional(ListDaoCondition.class)
 public class ListLocationDao implements LocationDao {
     private Long counter = 0L;
