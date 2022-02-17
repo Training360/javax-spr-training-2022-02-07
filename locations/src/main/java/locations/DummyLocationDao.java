@@ -1,7 +1,6 @@
-package spring.dto;
+package locations;
 
 import org.springframework.context.annotation.Conditional;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package spring.dto;
+package locations;
 
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;

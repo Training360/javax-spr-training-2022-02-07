@@ -1,4 +1,4 @@
-package spring.dto;
+package locations;
 
 public class Location {
     private Long id;

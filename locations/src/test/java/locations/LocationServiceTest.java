@@ -1,7 +1,6 @@
-package spring.dto;
+package locations;
 
 import org.junit.Test;
-import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;

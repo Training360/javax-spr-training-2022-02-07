@@ -1,4 +1,4 @@
-package spring.dto;
+package locations;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Service;

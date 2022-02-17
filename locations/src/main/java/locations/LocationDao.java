@@ -1,4 +1,4 @@
-package spring.dto;
+package locations;
 
 import java.util.List;
 import java.util.Optional;

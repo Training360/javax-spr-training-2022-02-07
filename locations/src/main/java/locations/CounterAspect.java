@@ -1,4 +1,4 @@
-package spring.dto;
+package locations;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -15,7 +15,7 @@ public class CounterAspect {
 
     private Map<String, AtomicInteger> numLocationsWithCharMap = new HashMap<>();
 
-    @Around("execution(* spring.dto.LocationService.createLocation(..))")
+    @Around("execution(* locations.LocationService.createLocation(..))")
     public Object inc(ProceedingJoinPoint pjp) throws Throwable {
         Object[] params = pjp.getArgs();
         if(params.length != 0 && params[0] instanceof String) {

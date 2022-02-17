@@ -1,4 +1,4 @@
-package spring.dto;
+package locations;
 
 import org.junit.Before;
 import org.junit.Test;
