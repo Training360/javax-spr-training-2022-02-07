@@ -13,12 +13,12 @@ import java.util.Optional;
 @Service
 public class LocationService {
     private final Logger logger = LoggerFactory.getLogger(getClass());
-    @Autowired
     private ApplicationContext applicationContext;
     private final LocationDao locationDao;
     private ApplicationEventPublisher applicationEventPublisher;
 
-    public LocationService(LocationDao locationDao) {
+    public LocationService(ApplicationContext applicationContext, LocationDao locationDao) {
+        this.applicationContext = applicationContext;
         this.locationDao = locationDao;
     }
 
