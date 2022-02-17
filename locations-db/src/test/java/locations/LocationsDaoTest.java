@@ -32,10 +32,10 @@ public class LocationsDaoTest {
     public void testCreateThenList() {
         locationDao.save("Budapest", 23.14, 67.45);
         List<Location> locations = locationDao.findAll();
-        assertEquals(locations.size(), 1);
-        assertEquals(locations.get(0).getName(), "Budapest");
-        assertEquals(locations.get(0).getLat(), 23, 14);
-        assertEquals(locations.get(0).getLon(), 67, 45);
+        assertEquals(1, locations.size());
+        assertEquals("Budapest", locations.get(0).getName());
+        assertEquals(23.14, locations.get(0).getLat(), 0.005);
+        assertEquals(67.45, locations.get(0).getLon(), 0.005);
     }
 
     @Test
@@ -43,8 +43,8 @@ public class LocationsDaoTest {
         long id = locationDao.create("Budapest", 23.14, 67.45);
         System.out.println(id);
         Location location = locationDao.findLocationById(id);
-        assertEquals(location.getName(), "Budapest");
-        assertEquals(location.getLat(), 23, 14);
-        assertEquals(location.getLon(), 67, 45);
+        assertEquals("Budapest", location.getName());
+        assertEquals(23.14, location.getLat(), 0.005);
+        assertEquals(67.45, location.getLon(), 0.005);
     }
 }

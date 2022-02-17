@@ -31,12 +31,12 @@ public class LocationsAuditIntegrationTest {
         List<Location> locations = locationServiceJpa.listLocations();
         List<AuditLog> logs = loggerService.listAuditLogs();
 
-        assertEquals(locations.size(), 1);
-        assertEquals(locations.get(0).getName(), "Budapest");
-        assertEquals(locations.get(0).getLat(), 12, 34);
-        assertEquals(locations.get(0).getLon(), 87, 34);
-        assertEquals(logs.size(), 1);
-        assertEquals(logs.get(0).getMessage(), "Location created: Budapest");
+        assertEquals(1, locations.size());
+        assertEquals("Budapest", locations.get(0).getName());
+        assertEquals(12.34, locations.get(0).getLat(), 0.005);
+        assertEquals(87.34, locations.get(0).getLon(), 0.005);
+        assertEquals(1, logs.size());
+        assertEquals("Location created: Budapest", logs.get(0).getMessage());
     }
 
     @Test
@@ -46,8 +46,8 @@ public class LocationsAuditIntegrationTest {
         List<Location> locations = locationServiceJpa.listLocations();
         List<AuditLog> logs = loggerService.listAuditLogs();
 
-        assertEquals(locations.size(), 0);
-        assertEquals(logs.size(), 1);
-        assertEquals(logs.get(0).getMessage(), "Location created: ");
+        assertEquals(0, locations.size());
+        assertEquals(1, logs.size());
+        assertEquals("Location created: ", logs.get(0).getMessage());
     }
 }

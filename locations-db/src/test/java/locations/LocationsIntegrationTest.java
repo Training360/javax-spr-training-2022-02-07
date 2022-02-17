@@ -23,9 +23,9 @@ public class LocationsIntegrationTest {
     public void testSaveThenQuery() {
         locationDao.save("Budapest", 12.34, 87.34);
         List<Location> locations = locationDao.findAll();
-        assertEquals(locations.size(), 1);
-        assertEquals(locations.get(0).getName(), "Budapest");
-        assertEquals(locations.get(0).getLat(), 12, 34);
-        assertEquals(locations.get(0).getLon(), 87, 34);
+        assertEquals(1, locations.size());
+        assertEquals("Budapest", locations.get(0).getName());
+        assertEquals(12.34, locations.get(0).getLat(), 0.005);
+        assertEquals(87.34, locations.get(0).getLon(), 0.005);
     }
 }
